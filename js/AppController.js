@@ -1,7 +1,8 @@
 var app = angular.module('app.controllers', ['ui.router']);
 
-app.controller('LoginController', function($scope, $state) {
+app.controller('AppController', function($scope, $state) {
 	$scope.user = {};
+	$scope.isLoggedIn = false;
 
 	$scope.login = function(user) {
 		/**
@@ -9,6 +10,7 @@ app.controller('LoginController', function($scope, $state) {
 		 * Edward Snowden would be proud 
 		 */
 		if( (user.username == "john" ) && (user.password == "password") ) {
+			$scope.isLoggedIn = true;
 			/**
 			 * User passed our super secure login system (NSA still trying)
 			 * then save the token in localStorage. In real live you would send this token
@@ -25,6 +27,12 @@ app.controller('LoginController', function($scope, $state) {
 		}else {
 			$state.go('login');
 		}
+	}
 
+	$scope.logout = function() {
+		$scope.isLoggedIn = false;
+		localStorage.removeItem('auth-token');
+		localStorage.removeItem('currentUser');
+		$state.go('home');
 	}
 });

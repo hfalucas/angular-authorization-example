@@ -7,19 +7,18 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     
     $stateProvider.state('home', {
         url: '/',
-        templateUrl: 'home.html'
+        templateUrl: 'home.html',
     })
     .state('about', {
         url: '/about',
-        templateUrl: 'about.html'     
+        templateUrl: 'about.html',
     })
     .state('contact', {
     	url: '/contact',
-    	templateUrl: 'contact.html'
+    	templateUrl: 'contact.html',
     })
     .state('login', {
     	url: '/login',
-        controller: 'LoginController',
         templateUrl: 'login.html'
     })
     .state('admin', {
@@ -28,7 +27,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         access: {                               // This object is going to be crucial to check the user permissions (roles).
             requiresLogin: true,                // It is super intuitive because we are saying;
             requiredPermissions: ['Admin'],     // Hey to access this state you should be logged in 
-            permissionType: 'AtLeastOne'        // and be at least have an Admin role
+            permissionType: 'AtLeastOne'        // and at least have the Admin role
         }
     })
     .state('reporting', {
@@ -44,7 +43,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 });
     
     /**
-     * UI Router have events that we can hook things and one of them is: $routeChangeStart
+     * UI Router have events that we can hook things and one of them is: $stateChangeStart
      * Like the name says it happens right when route starts to change to another.
      * So we are going to listen to it and in every 'routeChangeStart' we are inspect the 'access' object
      * if there's one and determine if the user can enter the route or not.
