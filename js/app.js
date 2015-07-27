@@ -45,7 +45,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     /**
      * UI Router have events that we can hook things and one of them is: $stateChangeStart
      * Like the name says it happens right when route starts to change to another.
-     * So we are going to listen to it and in every 'routeChangeStart' we are inspect the 'access' object
+     * So we are going to listen for it and in every 'stateChangeStart' we are inspect the 'access' object
      * if there's one and determine if the user can enter the route or not.
      */
     app.run(function($rootScope, $location, $state, AuthorizationService) {
