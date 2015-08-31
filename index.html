@@ -15,7 +15,7 @@
 	| <a ui-sref="reporting">Reporting</a>
 	|
 	<a ng-if="!isLoggedIn" ui-sref="login">Login</a>
-	<a ng-if="isLoggedIn" ng-click="logout()">Logout</a>
+	<a ng-if="isLoggedIn" ng-click="logout()" id="logout">Logout</a>
 
 	<br>
 	<div ui-view></div>
