@@ -2,7 +2,9 @@ var app = angular.module('app.controllers', ['ui.router']);
 
 app.controller('AppController', function($scope, $state) {
 	$scope.user = {};
-	$scope.isLoggedIn = false;
+	$scope.isLoggedIn = ( ! localStorage.getItem('auth-token') )
+						? false
+						: true;
 
 	$scope.login = function(user) {
 		/**
