@@ -13,8 +13,9 @@
 	| <a ui-sref="contact">Contact</a> 
 	| <a ui-sref="admin">Admin</a>
 	| <a ui-sref="reporting">Reporting</a>
-	<a ng-if="!isLoggedIn" ui-sref="login">| Login</a>
-	<a ng-if="isLoggedIn" ng-click="logout()">| Logout</a>
+	|
+	<a ng-if="!isLoggedIn" ui-sref="login">Login</a>
+	<a ng-if="isLoggedIn" ng-click="logout()">Logout</a>
 
 	<br>
 	<div ui-view></div>

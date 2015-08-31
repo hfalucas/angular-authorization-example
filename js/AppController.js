@@ -9,11 +9,11 @@ app.controller('AppController', function($scope, $state) {
 		 * Anti NSA Login security 
 		 * Edward Snowden would be proud 
 		 */
-		if( (user.username == "john" ) && (user.password == "password") ) {
+		if ( (user.username == "john" ) && (user.password == "password") ) {
 			$scope.isLoggedIn = true;
 			/**
 			 * User passed our super secure login system (NSA still trying)
-			 * then save the token in localStorage. In real live you would send this token
+			 * then save the token in localStorage. In real scenarios you would send this token
 			 * in every request and if someone changes or deletes it the user is redirected to login page
 			 */
 			localStorage.setItem('auth-token', 'some.random.token');
@@ -24,7 +24,7 @@ app.controller('AppController', function($scope, $state) {
 			 */
 			localStorage.setItem('currentUser', JSON.stringify( {username: 'john', roles: ['admin']} ));
 			$state.go('admin');
-		}else {
+		} else {
 			$state.go('login');
 		}
 	}
