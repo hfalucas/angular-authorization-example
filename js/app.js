@@ -62,7 +62,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
             /**
              * Lets imagine that when we login our API gives us a token and we store it on localStorage
              * So if we already have the token it means the user is logged in so we shouldn't allow him to
-             * access the login or the register page again. In that have he is redirected to the admin page.
+             * access the login or the register page again. In that case he is redirected to the admin page.
              */
             if( (currentUser || token ) && (toState.name == 'login' || toState.name == 'register') ) {
                 event.preventDefault();
@@ -70,7 +70,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
             }
 
             /**
-             * Now we check if the next state have the access object we defined in the routes (just up there).
+             * Now we check if the next state has the access object we defined in the routes (just up there).
              * If it is true we send the values (requiresLogin, requiredPermissions, permissionType) to our
              * Authorization Service and save the result in that authorized variable
              */
@@ -82,7 +82,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
                 );
 
                 /**
-                 * Here we already should have the result of our Authorization Service
+                 * Here we should already have the result of our Authorization Service
                  * And if the result is 'loginIsRequired' or 'notAuthorized' (he might not have the right role)
                  * STOPS EVERYTHING and send him back to the login page otherwise let him through
                  */
